@@ -12,11 +12,24 @@ word = urllib.parse.quote_plus("#留学")
 # デフォルト文字コードをutf8に変更
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
+#twitterAPIのkeyを読み込む
+f = open('pass/Keys.txt')
+keys = f.readlines() # 1行毎にファイル終端まで全て読む(改行文字も含まれる)
+f.close()
+
 #apiキー情報設定
-consumer_key = "mn7MQJ8YbDCNv16VnRVG9MTYW"
-consumer_key_secret = "p6XHIdla4KJnza7IyIGqcCcCpN3FJJzJkR1Wx3clbpl0kChyhE"
+consumer_key = keys[0].replace('\n','')
+consumer_key_secret = keys[1].replace('\n','')
+access_token = keys[2].replace('\n','')
+access_token_secret = keys[3].replace('\n','')
+
+#
+'''
+consumer_key = "nY9h1vNQbjupMsE0kR6J7qYEU"
+consumer_key_secret = "u7Mszkafi53f8gfoaaYXvLubyIEEpfLDcgPOdSmUelj1CVw4lG"
 access_token = "2534309018-Ekv63oCR81e4H06vnw1aQImPAXEVTyt94ir9gQF"
 access_token_secret = "DhxuLe6NtKB9gqg32Eo0rGWpDrv8sLkSCPGY2SJOHaLxZ"
+'''
 
 #twitterAPIアクセス
 url = "https://api.twitter.com/1.1/search/tweets.json?count=100&lang=ja&q=" + word

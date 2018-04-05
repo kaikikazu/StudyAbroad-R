@@ -29,7 +29,6 @@ auth = OAuth1(consumer_key, consumer_key_secret, access_token, access_token_secr
 response = requests.get(url, auth = auth)
 data = response.json()['statuses']
 
-#各HTMLを構成するテキストを読み込む
 f_html = open('index2.html','wb')
 f_top = open('Text/head.txt','r',encoding="shift_jis")
 f_sectionstart = open('Text/section_start.txt','r',encoding="shift_jis")
@@ -43,15 +42,12 @@ StringEnd = f_end.read()
 
 TEXT = ""
 
-#HTMLを生成する
 for tweet in data:
     print(tweet["text"])
-    #ツイートを取得、HTMLの文章を生成
-    TEXT = TEXT + StringSectionStart + "<p>" + "</br>" + tweet["text"] + "</p>"
-    #もし、画像付きツイートだった場合、画像を取得してHTMLに埋め込み
+    TEXT = TEXT + StringSectionStart + "<p>" + tweet["text"] + "</p>"
     if len(tweet["entities"]) == 5:
         print(tweet["entities"]["media"][0]["media_url"])
-        TEXT = TEXT + "<img class=\"img-fluid\" src=\"" + tweet["entities"]["media"][0]["media_url"] + "\" alt=\"\">"
+        TEXT = TEXT + "<img class=\"img-fluid\" src=\"" + tweet["entities"]["media"][0]["media_url"] + "\" alt=\"\">" + "<br>"
     TEXT = TEXT + StringSectionEnd
 
 HTML = StringTop + TEXT + StringEnd

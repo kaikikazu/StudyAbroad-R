@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: shift_jis -*-
 from requests_oauthlib import OAuth1Session, OAuth1
 import json
 import requests
@@ -30,10 +30,10 @@ response = requests.get(url, auth = auth)
 data = response.json()['statuses']
 
 f_html = open('index2.html','wb')
-f_top = open('Text/head.txt','r',encoding="shift_jis")
-f_sectionstart = open('Text/section_start.txt','r',encoding="shift_jis")
-f_sectionend = open('Text/section_end.txt','r',encoding="shift_jis")
-f_end = open('Text/end.txt','r',encoding="shift_jis")
+f_top = open('Text/head.txt','r',encoding="utf-8_sig")
+f_sectionstart = open('Text/section_start.txt','r',encoding="utf-8_sig")
+f_sectionend = open('Text/section_end.txt','r',encoding="utf-8_sig")
+f_end = open('Text/end.txt','r',encoding="utf-8_sig")
 
 StringTop = f_top.read()
 StringSectionStart = f_sectionstart.read()
@@ -52,11 +52,6 @@ for tweet in data:
 
 HTML = StringTop + TEXT + StringEnd
 f_html.write(HTML.encode('cp932', 'ignore'))
-
-f_top.close()
-f_sectionstart.close()
-f_sectionend.close()
-f_end.close()
 
 '''
 f_top = open('PageText/top.txt','r',encoding="utf-8_sig")

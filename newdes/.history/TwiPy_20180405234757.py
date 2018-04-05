@@ -7,7 +7,7 @@ import sys
 import io
 
 #検索文字列設定
-word = urllib.parse.quote_plus("#留学")
+word = urllib.parse.quote_plus("#aa")
 
 # デフォルト文字コードをutf8に変更
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
@@ -29,11 +29,11 @@ auth = OAuth1(consumer_key, consumer_key_secret, access_token, access_token_secr
 response = requests.get(url, auth = auth)
 data = response.json()['statuses']
 
-f_html = open('index2.html','wb')
-f_top = open('Text/head.txt','r',encoding="shift_jis")
-f_sectionstart = open('Text/section_start.txt','r',encoding="shift_jis")
-f_sectionend = open('Text/section_end.txt','r',encoding="shift_jis")
-f_end = open('Text/end.txt','r',encoding="shift_jis")
+f_html = open('index2.html','wb',encoding='shift-jis')
+f_top = open('Text/head.txt','r',encoding='shift-jis')
+f_sectionstart = open('Text/section_start.txt','r',encoding='shift-jis')
+f_sectionend = open('Text/section_end.txt','r',encoding='shift-jis')
+f_end = open('Text/end.txt','r',encoding='shift-jis')
 
 StringTop = f_top.read()
 StringSectionStart = f_sectionstart.read()
@@ -51,7 +51,7 @@ for tweet in data:
     TEXT = TEXT + StringSectionEnd
 
 HTML = StringTop + TEXT + StringEnd
-f_html.write(HTML.encode('cp932', 'ignore'))
+f_html.write(HTML   ('cp932', 'ignore'))
 
 f_top.close()
 f_sectionstart.close()

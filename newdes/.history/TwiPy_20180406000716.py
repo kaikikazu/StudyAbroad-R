@@ -29,7 +29,7 @@ auth = OAuth1(consumer_key, consumer_key_secret, access_token, access_token_secr
 response = requests.get(url, auth = auth)
 data = response.json()['statuses']
 
-f_html = open('index2.html','wb')
+f_html = open('index2.html','wb'.encoding="shift_jis")
 f_top = open('Text/head.txt','r',encoding="shift_jis")
 f_sectionstart = open('Text/section_start.txt','r',encoding="shift_jis")
 f_sectionend = open('Text/section_end.txt','r',encoding="shift_jis")

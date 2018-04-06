@@ -12,7 +12,7 @@
             <p class="lead">こんにちは、 これは留学を迷う学生向けのページです。先輩方の意見を掲載しています</p>
           </div>
           <div class="col-lg-4 mr-auto">
-            <p class="lead">ぜひ皆さんも留学してください。</p>
+            <p class="lead">Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
           </div>
         </div>
       </div>

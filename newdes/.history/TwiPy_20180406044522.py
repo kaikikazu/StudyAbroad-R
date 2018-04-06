@@ -7,7 +7,7 @@ import sys
 import io
 
 #検索文字列設定
-word = urllib.parse.quote_plus("#桜 exclude:retweets")
+word = urllib.parse.quote_plus("#立命館 exclude:retweets")
 
 # デフォルト文字コードをutf8に変更
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
@@ -31,10 +31,10 @@ data = response.json()['statuses']
 
 #各HTMLを構成するテキストを読み込む
 f_html = open('index2.html','wb')
-f_top = open('Text/head.txt','r',encoding="utf-8")
-f_sectionstart = open('Text/section_start.txt','r',encoding="utf-8")
-f_sectionend = open('Text/section_end.txt','r',encoding="utf-8")
-f_end = open('Text/end.txt','r',encoding="utf-8")
+f_top = open('Text/head.txt','r',encoding="shift_jis")
+f_sectionstart = open('Text/section_start.txt','r',encoding="shift_jis")
+f_sectionend = open('Text/section_end.txt','r',encoding="shift_jis")
+f_end = open('Text/end.txt','r',encoding="shift_jis")
 
 StringTop = f_top.read()
 StringSectionStart = f_sectionstart.read()

@@ -12,7 +12,7 @@
             <p class="lead">こんにちは、 これは留学を迷う学生向けのページです。先輩方の意見を掲載しています。質問のある人はぜひ下のMESSAGEから質問をしてみましょう。</p>
           </div>
           <div class="col-lg-4 mr-auto">
-            <p class="lead">ぜひ皆さんも留学してください。また、〇月〇日には座談会を行います。気になる内容があればぜひ聞いてみましょう。<br><a href="http://www.ritsumei.ac.jp/" target="_blank">http://www.ritsumei.ac.jp/</a></p>
+            <p class="lead">ぜひ皆さんも留学してください。また、〇月〇日には座談会を行います。気になる内容があればぜひ聞いてみましょう。<br><A Href="http://www.ritsumei.ac.jp/">http://www.ritsumei.ac.jp/</A></p>
           </div>
         </div>
       </div>

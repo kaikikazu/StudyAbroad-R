@@ -55,7 +55,7 @@
     <!-- Header -->
     <header class="masthead bg-primary text-white text-center">
       <div class="container">
-        <img class="img-fluid mb-5 d-block mx-auto" src="img/sun2.jpg" alt="">
+        <img class="img-fluid mb-5 d-block mx-auto" src="img/sun2-min.jpg" alt="">
         <h1 class="text-uppercase mb-0">Go Abroad <br> from <br> <font color="EFC31B"> CRECORE-LA</font></h1>
         <hr class="star-light">
         <h2 class="font-weight-light mb-0">「Go Abroad from CRECORE-LA」は、情理海外留学プログラムに参加した人、<br>これから参加する人、参加を迷っている方のためのツイート（＃留学クリコアラ）<br>まとめサイトです</h2>

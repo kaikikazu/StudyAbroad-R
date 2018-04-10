@@ -46,8 +46,12 @@ TEXT = ""
 #HTMLを生成する
 for tweet in data:
     print(tweet["text"])
+    index = tweet["text"].find("https://t.co")
     #ツイートを取得、HTMLの文章を生成
-    TEXT = TEXT + StringSectionStart + "<p>" + "</br>" + tweet["text"] + "</p>"
+    if index != -1:
+        TEXT = TEXT + StringSectionStart + "<p>" + "</br>" + tweet["text"][0:index] + "</p>"
+    else:
+        TEXT = TEXT + StringSectionStart + "<p>" + "</br>" + tweet["text"] + "</p>"
     #もし、画像付きツイートだった場合、画像を取得してHTMLに埋め込み
     if len(tweet["entities"]) == 5:
         print(tweet["entities"]["media"][0]["media_url"])

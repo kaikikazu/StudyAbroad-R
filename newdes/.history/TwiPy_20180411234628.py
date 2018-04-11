@@ -14,7 +14,7 @@ word = urllib.parse.quote_plus("#桜 exclude:retweets")
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 # ファイルオープン
-f = open('output.csv', 'w',errors='ignore')
+f = open('output.csv', 'w')
 writer = csv.writer(f, lineterminator='\n')
 
 #twitterAPIのkeyを読み込む
@@ -48,40 +48,24 @@ StringEnd = f_end.read()
 
 TEXT = ""
 
-# データを保存するリスト
-csvlist = []
-
 #HTMLを生成する
 for tweet in data:
-    tweetlist = []
-    #print(tweet["text"])
+    print(tweet["text"])
     index = tweet["text"].find("https://t.co")
     #ツイートを取得、HTMLの文章を生成
-    #元ツイートが簡単に辿れるURLが付属してしまうので削除
     if index != -1:
         TEXT = TEXT + StringSectionStart + "<p>" + "</br>" + tweet["text"][0:index] + "</p>"
-        tweetlist.append(tweet["text"][0:index])
     else:
         TEXT = TEXT + StringSectionStart + "<p>" + "</br>" + tweet["text"] + "</p>"
-        tweetlist.append(tweet["text"])
     #もし、画像付きツイートだった場合、画像を取得してHTMLに埋め込み
     if len(tweet["entities"]) == 5:
-        #print(tweet["entities"]["media"][0]["media_url"])
+        print(tweet["entities"]["media"][0]["media_url"])
         TEXT = TEXT + "<img class=\"img-fluid\" src=\"" + tweet["entities"]["media"][0]["media_url"] + "\" alt=\"\">"
-        tweetlist.append(tweet["entities"]["media"][0]["media_url"])
     TEXT = TEXT + StringSectionEnd
-    print(tweetlist)
-    csvlist.append(tweetlist)
 
 HTML = StringTop + TEXT + StringEnd
 #面倒な文字を除外
 f_html.write(HTML.encode('cp932', 'ignore'))
-
-# 出力
-writer.writerow(csvlist)
-
-# ファイルクローズ
-f.close()
 
 f_top.close()
 f_sectionstart.close()

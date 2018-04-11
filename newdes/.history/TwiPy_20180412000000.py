@@ -14,7 +14,7 @@ word = urllib.parse.quote_plus("#桜 exclude:retweets")
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 # ファイルオープン
-f = open('output.csv', 'w',errors='ignore')
+f = open('output.csv', 'w')
 writer = csv.writer(f, lineterminator='\n')
 
 #twitterAPIのkeyを読み込む

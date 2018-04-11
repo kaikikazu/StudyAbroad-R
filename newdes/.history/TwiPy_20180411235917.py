@@ -14,7 +14,7 @@ word = urllib.parse.quote_plus("#桜 exclude:retweets")
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 # ファイルオープン
-f = open('output.csv', 'w',errors='ignore')
+f = open('output.csv', 'w')
 writer = csv.writer(f, lineterminator='\n')
 
 #twitterAPIのkeyを読み込む
@@ -60,7 +60,7 @@ for tweet in data:
     #元ツイートが簡単に辿れるURLが付属してしまうので削除
     if index != -1:
         TEXT = TEXT + StringSectionStart + "<p>" + "</br>" + tweet["text"][0:index] + "</p>"
-        tweetlist.append(tweet["text"][0:index])
+        tweetlist.append(tweet["text"][0:index].encode('cp932', 'ignore'))
     else:
         TEXT = TEXT + StringSectionStart + "<p>" + "</br>" + tweet["text"] + "</p>"
         tweetlist.append(tweet["text"])

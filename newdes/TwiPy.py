@@ -7,7 +7,7 @@ import sys
 import io
 
 #検索文字列設定
-word = urllib.parse.quote_plus("#立命館 exclude:retweets")
+word = urllib.parse.quote_plus("#桜 exclude:retweets")
 
 # デフォルト文字コードをutf8に変更
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')

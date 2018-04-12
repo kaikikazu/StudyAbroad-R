@@ -13,7 +13,7 @@ word = urllib.parse.quote_plus("#留学クリコアラ exclude:retweets")
 # デフォルト文字コードをutf8に変更
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
-#検索結果を入力するファイルオープン
+# ファイルオープン
 f = open('output.csv', 'w',errors='ignore')
 writer = csv.writer(f, lineterminator='\n')
 
@@ -34,18 +34,19 @@ auth = OAuth1(consumer_key, consumer_key_secret, access_token, access_token_secr
 response = requests.get(url, auth = auth)
 data = response.json()['statuses']
 
-#各HTMLを構成するテキストを開く
+#各HTMLを構成するテキストを読み込む
 f_html = open('index2.html','wb')
 f_top = open('Text/head.txt','r',encoding="utf-8")
 f_sectionstart = open('Text/section_start.txt','r',encoding="utf-8")
 f_sectionend = open('Text/section_end.txt','r',encoding="utf-8")
 f_end = open('Text/end.txt','r',encoding="utf-8")
 
-#各HTMLを構成するテキストを読み込む
 StringTop = f_top.read()
 StringSectionStart = f_sectionstart.read()
 StringSectionEnd = f_sectionend.read()
 StringEnd = f_end.read()
+
+TEXT = ""
 
 #日付の文章を生成する
 def makedate(date):
@@ -80,7 +81,6 @@ def makedate(date):
 # データを保存するリスト
 csvlist = []
 
-TEXT = ""
 #HTMLを生成する
 for tweet in data:
     tweetlist = []
@@ -104,17 +104,16 @@ for tweet in data:
     print(tweetlist)
     csvlist.append(tweetlist)
 
-#最終的なHTML文章の生成
 HTML = StringTop + TEXT + StringEnd
-
-#エラーを出す面倒な文字を除外
+#面倒な文字を除外
 f_html.write(HTML.encode('cp932', 'ignore'))
 
-# htmlファイルに出力
+# 出力
 writer.writerow(csvlist)
 
 # ファイルクローズ
 f.close()
+
 f_top.close()
 f_sectionstart.close()
 f_sectionend.close()

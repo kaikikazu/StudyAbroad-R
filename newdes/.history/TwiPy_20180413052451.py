@@ -103,7 +103,6 @@ for tweet in data:
         tweetlist.append(tweet["entities"]["media"][0]["media_url"])
     TEXT = TEXT + StringSectionEnd
     print(tweetlist)
-    writer.writerow(tweetlist)
     csvlist.append(tweetlist)
 
 #最終的なHTML文章の生成
@@ -113,7 +112,7 @@ HTML = StringTop + TEXT + StringEnd
 f_html.write(HTML.encode('cp932', 'ignore'))
 
 # csvファイルに出力
-#writer.writerow(csvlist)
+writer.writerow(csvlist)
 
 # ファイルクローズ
 f.close()

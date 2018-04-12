@@ -14,7 +14,7 @@ word = urllib.parse.quote_plus("#留学クリコアラ exclude:retweets")
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 #検索結果を入力するファイルオープン
-f = open('output.csv', 'w',errors='ignore',newline='')
+f = open('output.csv', 'w',errors='ignore',newline=\")
 writer = csv.writer(f, lineterminator='\n')
 
 #twitterAPIのkeyを読み込む
@@ -103,7 +103,6 @@ for tweet in data:
         tweetlist.append(tweet["entities"]["media"][0]["media_url"])
     TEXT = TEXT + StringSectionEnd
     print(tweetlist)
-    writer.writerow(tweetlist)
     csvlist.append(tweetlist)
 
 #最終的なHTML文章の生成
@@ -112,8 +111,8 @@ HTML = StringTop + TEXT + StringEnd
 #エラーを出す面倒な文字を除外
 f_html.write(HTML.encode('cp932', 'ignore'))
 
-# csvファイルに出力
-#writer.writerow(csvlist)
+# htmlファイルに出力
+writer.writerow(csvlist)
 
 # ファイルクローズ
 f.close()

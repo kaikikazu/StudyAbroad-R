@@ -9,6 +9,6 @@ reader = csv.reader(f)
 # header = next(reader)
  
 for row in reader:
-        print (row[1])
+        print (row)
  
 f.close()

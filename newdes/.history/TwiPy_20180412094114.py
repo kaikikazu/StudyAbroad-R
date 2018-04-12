@@ -54,7 +54,7 @@ csvlist = []
 #HTMLを生成する
 for tweet in data:
     tweetlist = []
-    print(tweet["text"])
+    #print(tweet["text"])
     index = tweet["text"].find("https://t.co")
     #ツイートを取得、HTMLの文章を生成
     #元ツイートが簡単に辿れるURLが付属してしまうので削除
@@ -66,7 +66,7 @@ for tweet in data:
         tweetlist.append(tweet["text"])
     #もし、画像付きツイートだった場合、画像を取得してHTMLに埋め込み
     if len(tweet["entities"]) == 5:
-        print(tweet["entities"]["media"][0]["media_url"])
+        #print(tweet["entities"]["media"][0]["media_url"])
         TEXT = TEXT + "<img class=\"img-fluid\" src=\"" + tweet["entities"]["media"][0]["media_url"] + "\" alt=\"\">"
         tweetlist.append(tweet["entities"]["media"][0]["media_url"])
     TEXT = TEXT + StringSectionEnd

@@ -55,7 +55,7 @@ csvlist = []
 for tweet in data:
     tweetlist = []
     print(tweet["text"])
-    index = tweet["text"].find("https://t.co")
+    #index = tweet["text"].find("https://t.co")
     #ツイートを取得、HTMLの文章を生成
     #元ツイートが簡単に辿れるURLが付属してしまうので削除
     if index != -1:

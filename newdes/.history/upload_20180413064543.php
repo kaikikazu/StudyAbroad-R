@@ -17,7 +17,7 @@ if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
   echo "ファイルが選択されていません。";
 }
 
-if(exec('python makehtml.py' + './files/' + $_FILES["upfile"]["name"]) == 0){
+if(exec('python makehtml.py') == 0){
   echo "SUCCESS!";
 }else{
   echo "FALSE";

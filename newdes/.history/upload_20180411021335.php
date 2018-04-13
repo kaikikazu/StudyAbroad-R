@@ -16,16 +16,11 @@ if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
 } else {
   echo "ファイルが選択されていません。";
 }
-
-if(exec('python makehtml.py' + './files/' + $_FILES["upfile"]["name"]) == 0){
-  echo "SUCCESS!";
-}else{
-  echo "FALSE";
+if($_POST['riyu'] == 1){
+    echo exec('python TwiPy.py');
 }
 
-
 ?></p>
-<a href="index3.html">index3.html</a>
 </body>
 </html>
 

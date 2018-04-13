@@ -23,7 +23,7 @@ StringEnd = f_end.read()
 #csvオープン・読み込み
 argvs = sys.argv
 csvfile = argvs[1]
-f = open(csvfile, "r",encoding="utf-8")
+f = open(csvfile, "r")
 reader = csv.reader(f)
 
 TEXT = ""
